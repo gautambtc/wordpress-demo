@@ -2504,5 +2504,5 @@ function _wp_get_current_user() {
 
 	wp_set_current_user( $user_id );
 
-	return $nil;
+	return $current_user;
 }
