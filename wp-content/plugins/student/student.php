@@ -39,6 +39,8 @@ register_deactivation_hook( __FILE__, array( 'student', 'plugin_deactivation' ) 
   function content_menu_student() {
     if (function_exists('add_menu_page')) {
       add_menu_page(__('student', 'student'), __('student', 'student'), 'manage_database', 'student/views/index.php', '', 'dashicons-archive');
+      add_menu_page(__('student', 'student'), __('NewStudent', 'NewStudent'), 'manage_database', 'student/views/new.php', '', 'dashicons-archive');
+      add_menu_page(__('student', 'student'), __('Edit Student', 'EditStudent'), 'manage_database', 'student/views/edit.php', '', 'dashicons-archive');
     }
       // add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function = '' )
 
