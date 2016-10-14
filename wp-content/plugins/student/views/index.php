@@ -4,7 +4,7 @@
     $students= $wpdb->get_results($query);
 ?>
 
-<a href=<?= admin_url()."admin.php?page=student/views/new.php" ?>>New Sudent</a>
+<a href=<?= admin_url()."admin.php?page=student/views/new.php" ?> class="primary">New Sudent</a>
 
 <table class="form-table">
   <tr>
@@ -27,7 +27,7 @@
       <td><?= $student->gender ?></td>
       <td><?= $student->dob ?></td>
       <td>
-        <a href=<?= plugins_url()."/student/views/action.php?action=edit&id=".$student->ID ?>>Edit</a>&nbsp;&nbsp;
+        <a href=<?= admin_url()."admin.php?page=student/views/new.php&action=edit&id=".$student->ID ?>>Edit</a>&nbsp;|&nbsp;
         <a href=<?= plugins_url()."/student/views/action.php?action=delete&id=".$student->ID ?>>Delete</a>
       <td>
     </tr>
