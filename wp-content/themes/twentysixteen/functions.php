@@ -442,7 +442,7 @@ function get_price_of_post($id)
 }
 
 add_action('manage_posts_custom_column', 'display_extra_column', 10, 3);
-function display_extra_column($value, $column_name, $post_id) {
+function display_extra_column($value, $column_name, $post_id=0) {
   $post = get_postdata( $post_id );
   $price = get_price_of_post($post["ID"]);
   if ( 'post_price' == $column_name  ) {
