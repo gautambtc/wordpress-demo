@@ -39,11 +39,9 @@ register_deactivation_hook( __FILE__, array( 'student', 'plugin_deactivation' ) 
   function content_menu_student() {
     if (function_exists('add_menu_page')) {
       add_menu_page(__('student', 'student'), __('student', 'student'), 'manage_database', 'student/views/index.php', '', 'dashicons-archive');
+      add_menu_page(__('student', 'student'), __('NewStudent', 'NewStudent'), 'manage_database', 'student/views/new.php', '', 'dashicons-archive');
     }
-      // add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function = '' )
-
-    // if (function_exists('add_submenu_page')) {
-      // add_submenu_page('', __('New Content', 'contents'), __('New Content', 'contents'), 'manage_content', '');
+      
       // add_submenu_page('', __('Manage Backup DB', 'wp-dbmanager'), __('Manage Backup DB', 'wp-dbmanager'), 'manage_database', '');
       // add_submenu_page('', __('Optimize DB', 'wp-dbmanager'), __('Optimize DB', 'wp-dbmanager'), 'manage_database', '');
       // add_submenu_page('', __('Repair DB', 'wp-dbmanager'), __('Repair DB', 'wp-dbmanager'), 'manage_database', '');
