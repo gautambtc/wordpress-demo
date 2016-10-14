@@ -22,11 +22,19 @@
   </p>
   <p>
     <label for="key"> Gender :</label>
-    <input type='text' id='gender' name='gender' value = <?= $record->gender?>  >
+    <input type='radio' id='gender' name='gender' value="Male" <?= $record->gender == 'Male' ? 'checked' : ''?> />Male
+    <input type='radio' id='gender' name='gender' value="Female" <?= $record->gender == 'Female' ? 'checked' : ''?> />Female
   </p>
   <p>
     <label for="key"> DOB :</label>
-    <input type='text' id='dob' name='dob' value = <?= $record->dob?> >
+    <input type='text' class="datepicker" id='dob' name='dob' value = <?= $record->dob?> >
   </p>
   <input id="submit" type="submit" name="submit" class="button button-primary" value="update" />
 </form>
+<script>
+jQuery(function() {
+    jQuery( ".datepicker" ).datepicker({
+        dateFormat : "yy-mm-dd"
+    });
+});
+</script>

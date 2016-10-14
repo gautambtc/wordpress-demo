@@ -10,7 +10,8 @@
   </p>
   <p>
     <label for="key"> Gender :</label>
-    <input type='text' id='gender' name='gender'/>
+    <input type='radio' id='gender' name='gender' value="Male" <?= $gender == 'Male' ? 'checked' : ''?> />Male
+    <input type='radio' id='gender' name='gender' value="Female" <?= $gender == 'Female' ? 'checked' : ''?> />Female
   </p>
   <p>
     <label for="key"> DOB :</label>
@@ -21,7 +22,7 @@
 <script>
 jQuery(function() {
     jQuery( ".datepicker" ).datepicker({
-        dateFormat : "dd-mm-yy"
+        dateFormat : "yy-mm-dd"
     });
 });
 </script>

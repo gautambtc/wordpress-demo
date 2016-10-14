@@ -40,7 +40,22 @@ register_deactivation_hook( __FILE__, array( 'student', 'plugin_deactivation' ) 
     if (function_exists('add_menu_page')) {
       add_menu_page(__('student', 'student'), __('student', 'student'), 'manage_database', 'student/views/index.php', '', 'dashicons-archive');
       add_menu_page(__('student', 'student'), __('NewStudent', 'NewStudent'), 'manage_database', 'student/views/new.php', '', 'dashicons-archive');
-      add_menu_page(__('student', 'student'), __('Edit Student', 'EditStudent'), 'manage_database', 'student/views/edit.php', '', 'dashicons-archive');
+      // add_menu_page(__('student', 'student'), __('Edit Student', 'EditStudent'), 'manage_database', 'student/views/edit.php', '', 'dashicons-archive');
+
+  //     add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '', $position = null ) {
+    global $menu, $admin_page_hooks, $_registered_pages, $_parent_pages;
+
+    $menu_slug = plugin_basename( 'student/views/edit.php' );
+
+    $admin_page_hooks[$menu_slug] = sanitize_title( __('Edit Student', 'EditStudent') );
+
+    $hookname = get_plugin_page_hookname( $menu_slug, '' );
+
+    if ( !empty( $function ) && !empty( $hookname ) && current_user_can( $capability ) )
+    add_action( $hookname, $function );
+    $_registered_pages[$hookname] = true;
+
+      
     }
       
       // add_submenu_page('', __('Manage Backup DB', 'wp-dbmanager'), __('Manage Backup DB', 'wp-dbmanager'), 'manage_database', '');

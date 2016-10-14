@@ -28,7 +28,7 @@
       <td><?= $student->dob ?></td>
       <td>
         <a href=<?= admin_url()."admin.php?page=student/views/edit.php&id=".$student->ID ?>>Edit</a>&nbsp;&nbsp;
-        <a href=<?= plugins_url()."/student/views/action.php?action=delete&id=".$student->ID ?>>Delete</a>
+        <a href=<?= plugins_url()."/student/class/student-class.php?action=delete&id=".$student->ID ?>>Delete</a>
       <td>
     </tr>
 <?php 

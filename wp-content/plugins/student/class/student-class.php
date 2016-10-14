@@ -12,7 +12,7 @@
   
   if ($action == 'create')
   {
-    $query="insert into wp_student_details(first_name, last_name, gender, dob) values ('".$firstname."','".$lastname."','".$gender."','".$dob."')";
+    $query="insert into wp_student_details(first_name, last_name, gender, dob) values ('".$firstname."','".$lastname."','".$gender."','". $dob ."')";
     $result= $wpdb->query($query);
 
     if($result){
@@ -24,7 +24,7 @@
   }
   else if ($action == 'update')
   {
-    $query="update wp_student_details set first_name = '".$firstname. "', last_name ='" . $lastname . "', gender = '". $gender ."', dob= '".$dob."'";
+    $query="update wp_student_details set first_name = '".$firstname. "', last_name ='" . $lastname . "', gender = '". $gender ."', dob= '".$dob."' where id = " . $_REQUEST['id'];
     // $result = $wpdb->update("wp_student_details", array("first_name" => $firstname, "last_name" => $lastname, "gender" => $gender, "dob" => $dob), array("id" => $id));
     $result= $wpdb->query($query);
     if($result){
@@ -33,7 +33,10 @@
       echo "<script type='text/javascript'> alert('content not updatedd successfully'); </script>";
     }
   }
-  
+  else if($_REQUEST['action'] == 'delete')
+  {
+   $wpdb->delete("wp_student_details", array("id" => $_REQUEST['id']));
+  }
   
    wp_redirect(admin_url()."admin.php?page=student/views/index.php");
 ?>
