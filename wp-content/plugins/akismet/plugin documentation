@@ -1,0 +1,35 @@
+Check for Existing Implementations #Check for Existing Implementations
+
+PHP provides a number of functions to verify existance of variables, functions, Classes and constants. All of these will return true if the entity exists.
+
+    isset() – variables – including arrays, objects, etc.
+    function_exists() – functions
+    class_exists() – Classes
+    defined() – constants
+
+
+
+
+for installing plugins
+
+ sudo chown -R www-data:www-data *
+
+
+
+Folder Structure #Folder Structure
+
+A clear folder structure helps you and others working on your plugin keep similar files together.
+
+/plugin-name
+     plugin-name.php
+     uninstall.php
+     /languages
+     /includes
+     /admin
+     /admin/js
+     /admin/css
+     /admin/images
+     /public
+     /public/js
+     /public/css
+     /public/images
