@@ -3,8 +3,8 @@
     $query="SELECT * FROM wp_student_details ";
     $students= $wpdb->get_results($query);
 ?>
-
-<a href=<?= admin_url()."admin.php?page=student/views/new.php" ?> class="primary">New Sudent</a>
+<br>
+<a href=<?= admin_url()."admin.php?page=student/views/new.php" ?> class="button button-primary">New Sudent</a>
 
 <table class="form-table">
   <tr>
