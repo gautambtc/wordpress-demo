@@ -20,7 +20,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with {Plugin Name}. If not, see {License URI}.
 */
-define( 'ZOPUS_DEMO__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'STUDENT_DIR', plugin_dir_path( __FILE__ ) );
 // require_once( ZOPUS_DEMO__PLUGIN_DIR . '/view/new.php' );
 
 
@@ -40,6 +40,7 @@ register_deactivation_hook( __FILE__, array( 'student', 'plugin_deactivation' ) 
     if (function_exists('add_menu_page')) {
       add_menu_page(__('student', 'student'), __('student', 'student'), 'manage_database', 'student/views/index.php', '', 'dashicons-archive');
       add_menu_page(__('student', 'student'), __('NewStudent', 'NewStudent'), 'manage_database', 'student/views/new.php', '', 'dashicons-archive');
+      add_menu_page(__('student', 'student'), __('Edit Student', 'EditStudent'), 'manage_database', 'student/views/edit.php', '', 'dashicons-archive');
     }
       
       // add_submenu_page('', __('Manage Backup DB', 'wp-dbmanager'), __('Manage Backup DB', 'wp-dbmanager'), 'manage_database', '');

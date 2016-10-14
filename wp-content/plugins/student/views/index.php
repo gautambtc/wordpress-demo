@@ -1,11 +1,11 @@
 <?php
     global $query;
-    $query="SELECT * FROM wp_student_details";
+    $query="SELECT * FROM wp_student_details ";
     $students= $wpdb->get_results($query);
 ?>
 
+<a href=<?= plugins_url()."/student/views/new.php?action=new" ?>>New Sudent</a>
 
-<
 <table class="form-table">
   <tr>
     <th>Id</th>
@@ -27,8 +27,8 @@
       <td><?= $student->gender ?></td>
       <td><?= $student->dob ?></td>
       <td>
-        <a href="action.php?action=edit&id=<?= $student->ID ?>">Edit</a>&nbsp;&nbsp;
-        <a href="action.php?action=delete&id=<?= $student->ID ?>">Delete</a>
+        <a href=<?= admin_url()."admin.php?page=student/views/edit.php&id=".$student->ID ?>>Edit</a>&nbsp;&nbsp;
+        <a href=<?= plugins_url()."/student/views/action.php?action=delete&id=".$student->ID ?>>Delete</a>
       <td>
     </tr>
 <?php 
