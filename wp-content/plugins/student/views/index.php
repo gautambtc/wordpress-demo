@@ -4,7 +4,7 @@
     $students= $wpdb->get_results($query);
 ?>
 
-<a href=<?= plugins_url()."/student/views/new.php?action=new" ?>>New Sudent</a>
+<a href=<?= admin_url()."admin.php?page=student/views/new.php" ?>>New Sudent</a>
 
 <table class="form-table">
   <tr>

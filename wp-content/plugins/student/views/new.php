@@ -14,8 +14,14 @@
   </p>
   <p>
     <label for="key"> DOB :</label>
-    <input type='text' id='dob' name='dob'/>
+    <input type="text" class="datepicker" name="dob" id="dob" value=""/>
   </p>
   <input id="submit" type="submit" name="submit" class="button button-primary" value="create" />
 </form>
-  
+<script>
+jQuery(function() {
+    jQuery( ".datepicker" ).datepicker({
+        dateFormat : "dd-mm-yy"
+    });
+});
+</script>
