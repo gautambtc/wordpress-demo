@@ -1,38 +1,33 @@
-<?php
-    global $query;
-    $query="SELECT * FROM wp_student_details ";
-    $students= $wpdb->get_results($query);
-?>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <br>
 <a href=<?= admin_url()."admin.php?page=student/views/new.php" ?> class="button button-primary">New Sudent</a>
+<input type="text" name="search" onkeyup="showStudent(this.value);" placeholder="search by first or last name">
 
-<table class="form-table">
-  <tr>
-    <th>Id</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Gender</th>
-    <th>DOB</th>
-    <th>ACTIONS</th>
-  </tr>
-  <tbody>
-<?php
-    foreach($students as $student)
-    {
-?>
-    <tr>
-      <td><?= $student->ID ?></td>
-      <td><?= $student->first_name ?></td>
-      <td><?= $student->last_name ?></td>
-      <td><?= $student->gender ?></td>
-      <td><?= $student->dob ?></td>
-      <td>
-        <a href=<?= admin_url()."admin.php?page=student/views/new.php&action=edit&id=".$student->ID ?>>Edit</a>&nbsp;|&nbsp;
-        <a href=<?= plugins_url()."/student/views/action.php?action=delete&id=".$student->ID ?>>Delete</a>
-      <td>
-    </tr>
-<?php 
-    }
-?>
-</tbody>
-</table>
+<div id="student_data">
+  <?php
+    include('search.php');
+  ?>
+</div>
+
+<script type="text/javascript">
+function showStudent(keyword) {
+    var action_url = '<?= plugins_url()."/student/views/search.php" ?>';
+    $.ajax({url: action_url, 
+    success: function(result){
+    $("#student_data").html(result);},
+    data: {search: keyword}});
+  }
+
+function deleteStudent(id)
+{
+  if(confirm('do you want to delete student with id: '+id))
+  {
+    var action_url = '<?= plugins_url()."/student/views/delete.php" ?>';
+    $.ajax({url: action_url, 
+        success: function(result){
+        $("#student_data").html(result);},
+        data: {action: 'delete', id: id}});
+  }
+}
+
+</script>

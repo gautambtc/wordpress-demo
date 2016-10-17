@@ -7,10 +7,6 @@
   var_dump($_REQUEST);
   switch($_REQUEST['action'])
   {
-    case 'delete':
-      $wpdb->delete("wp_student_details", array("id" => $_REQUEST['id']));
-    break;
-
     case 'new':
       $result = $wpdb->insert("wp_student_details", array("first_name" => $_REQUEST['firstname'],
         "last_name" => $_REQUEST['lastname'],
