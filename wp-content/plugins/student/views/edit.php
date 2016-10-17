@@ -11,7 +11,7 @@
   $record= $wpdb -> get_results($query)[0];
 ?>
 
-<form name="studentdetails" id='student' method="post" action =  <?php echo plugins_url()."/student/class/student-class.php?id=".$id; ?> >
+<form name="studentdetails" id='student' method="post" action =  <?php echo plugins_url()."/student/class/action.php?id=".$id; ?> >
   <p>
     <label for="key"> FirstName  - </label>
     <input type='text' id='firstname' name='firstname' value = <?= $record->first_name?>  >
@@ -28,6 +28,10 @@
   <p>
     <label for="key"> DOB :</label>
     <input type='text' class="datepicker" id='dob' name='dob' value = <?= $record->dob?> >
+  </p>
+  <p>
+    <label for="key"> Resume :</label>
+    <input type="file" name="resume_file" id='resume_file'/>
   </p>
   <input id="submit" type="submit" name="submit" class="button button-primary" value="update" />
 </form>
