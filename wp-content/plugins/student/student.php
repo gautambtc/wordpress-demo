@@ -24,8 +24,8 @@ define( 'ZOPUS_DEMO__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 // require_once( ZOPUS_DEMO__PLUGIN_DIR . '/view/new.php' );
 
 
-register_activation_hook( __FILE__, array( 'student', 'plugin_activation' ) );
-register_deactivation_hook( __FILE__, array( 'student', 'plugin_deactivation' ) );
+// register_activation_hook( __FILE__, array( 'student', 'plugin_activation' ) );
+// register_deactivation_hook( __FILE__, array( 'student', 'plugin_deactivation' ) );
 
 
   // add_action( 'plugins_loaded', 'content' );

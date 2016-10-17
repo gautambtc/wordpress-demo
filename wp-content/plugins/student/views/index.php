@@ -15,7 +15,7 @@ function showStudent(keyword) {
     $.ajax({url: action_url, 
     success: function(result){
     $("#student_data").html(result);},
-    data: {search: keyword}});
+    data: {search: keyword.trim()}});
   }
 
 function deleteStudent(id)
