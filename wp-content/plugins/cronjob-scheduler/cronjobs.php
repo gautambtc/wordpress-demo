@@ -10,15 +10,19 @@
  * saving this with invalid code can render your WordPress install inoperable
  * until you can fix the issue using FTP or another file editing utility.
 **/
-
+require_once( ABSPATH . "wp-config.php");
 function my_cronjob_action () {
+	
     // code to execute on cron run
   // if ( file_exists( $_SERVER['DOCUMENT_ROOT'] . '/wordpress/wp-config.php') ) {
-  //   // * The config file resides in ABSPATH 
-    require_once(  $_SERVER['DOCUMENT_ROOT'] . '/wordpress/wp-config.php'  );
+  //   // * The config file resides in ABSPATH
+  global $wpdb;
+  $query="insert into wp_student_details(first_name, last_name, gender, dob) values ('Gautam','Moradiya','male','2016-04-04')";
+  $result= $wpdb->query($query);
   // // }
-  $query="insert into wp_student_details(first_name, last_name, gender, dob, resume_file) values ('Gautam','Moradiya','male','1992-04-22','xyz.jpg')";
-  print_r($wpdb);
+  
+  echo "<script>alert(' done'); </script>";
+
 } add_action('my_cronjob_action', 'my_cronjob_action');
 
 // add_action('admin_menu', 'insert_user_random', 10, 1 )
