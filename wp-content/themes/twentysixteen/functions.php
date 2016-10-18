@@ -450,3 +450,11 @@ function display_extra_column($value, $column_name, $post_id=0) {
   }
   return $value;
 }
+
+ function add_e2_date_picker(){
+    //jQuery UI date picker file
+    wp_enqueue_script('jquery-ui-datepicker');
+    //jQuery UI theme css file
+    wp_enqueue_style('e2b-admin-ui-css','http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/base/jquery-ui.css',false,"1.9.0",false);
+    }
+    add_action('admin_enqueue_scripts', 'add_e2_date_picker');

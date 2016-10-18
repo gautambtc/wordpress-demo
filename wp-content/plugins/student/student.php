@@ -20,30 +20,33 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with {Plugin Name}. If not, see {License URI}.
 */
-define( 'ZOPUS_DEMO__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'STUDENT_DIR', plugin_dir_path( __FILE__ ) );
 // require_once( ZOPUS_DEMO__PLUGIN_DIR . '/view/new.php' );
 
 
-register_activation_hook( __FILE__, array( 'student', 'plugin_activation' ) );
-register_deactivation_hook( __FILE__, array( 'student', 'plugin_deactivation' ) );
+//register_activation_hook( __FILE__, array( 'student', 'plugin_activation' ) );
+//register_deactivation_hook( __FILE__, array( 'student', 'plugin_deactivation' ) );
+//
 
 
-  // add_action( 'plugins_loaded', 'content' );
-  // function content_textdomain() {
-  //   load_plugin_textdomain( 'Student-CRUD', false, dirname( plugin_basename( __FILE__ ) ) );
-  // }
 
   // add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '', $position = null ) {
 
   add_action('admin_menu', 'content_menu_student');
   function content_menu_student() {
     if (function_exists('add_menu_page')) {
-      add_menu_page(__('student', 'student'), __('student', 'student'), 'manage_database', 'student/views/index.php', '', 'dashicons-archive');
-    }
-      // add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function = '' )
+      add_menu_page('Student', __('Student', 'Student'), 'manage_database', 'student/views/index.php', '', 'dashicons-archive');
+      add_menu_page(__('student', 'student'), __('NewStudent', 'NewStudent'), 'manage_database', 'student/views/new.php', '', 'dashicons-archive');
+      // add_menu_page(__('student', 'student'), __('Edit Student', 'EditStudent'), 'manage_database', 'student/views/edit.php', '', 'dashicons-archive');
 
-    // if (function_exists('add_submenu_page')) {
-      // add_submenu_page('', __('New Content', 'contents'), __('New Content', 'contents'), 'manage_content', '');
+  //     add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '', $position = null ) {
+    global $_registered_pages;
+    $hookname = get_plugin_page_hookname( 'student/views/edit.php', '' );
+    $_registered_pages[$hookname] = true;
+
+      
+    }
+      
       // add_submenu_page('', __('Manage Backup DB', 'wp-dbmanager'), __('Manage Backup DB', 'wp-dbmanager'), 'manage_database', '');
       // add_submenu_page('', __('Optimize DB', 'wp-dbmanager'), __('Optimize DB', 'wp-dbmanager'), 'manage_database', '');
       // add_submenu_page('', __('Repair DB', 'wp-dbmanager'), __('Repair DB', 'wp-dbmanager'), 'manage_database', '');
