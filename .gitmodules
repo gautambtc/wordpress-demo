@@ -1,0 +1,3 @@
+[submodule "wp-content/plugins/twitter_my_custom/api"]
+	path = wp-content/plugins/twitter_my_custom/api
+	url = https://github.com/timwhitlock/wp-twitter-api.git

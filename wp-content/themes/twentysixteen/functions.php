@@ -421,40 +421,40 @@ function twentysixteen_widget_tag_cloud_args( $args ) {
 add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
 
 // my code################### for post
-add_action('manage_posts_columns','modify_post_columns');
-function modify_post_columns($column_headers) {
-  $column_headers['post_price'] = 'Price in $';
-  return $column_headers;
-}
+// add_action('manage_posts_columns','modify_post_columns');
+// function modify_post_columns($column_headers) {
+//   $column_headers['post_price'] = 'Price in $';
+//   return $column_headers;
+// }
 
-add_action('admin_head', 'custom_admin_css');
-function custom_admin_css() {
-  echo '<style>
-  .column-post_price {width: 8%}
-  </style>';
-}
+// add_action('admin_head', 'custom_admin_css');
+// function custom_admin_css() {
+//   echo '<style>
+//   .column-post_price {width: 8%}
+//   </style>';
+// }
 
-function get_price_of_post($id)
-{
-	global $wpdb;
-	$result = $wpdb->get_results("select * from wp_posts where id=".$id);
-	print_r($result[0]->post_price);
-}
+// function get_price_of_post($id)
+// {
+// 	global $wpdb;
+// 	$result = $wpdb->get_results("select * from wp_posts where id=".$id);
+// 	print_r($result[0]->post_price);
+// }
 
-add_action('manage_posts_custom_column', 'display_extra_column', 10, 3);
-function display_extra_column($value, $column_name, $post_id=0) {
-  $post = get_postdata( $post_id );
-  $price = get_price_of_post($post["ID"]);
-  if ( 'post_price' == $column_name  ) {
-  	echo $price;
-  }
-  return $value;
-}
+// add_action('manage_posts_custom_column', 'display_extra_column', 10, 3);
+// function display_extra_column($value, $column_name, $post_id=0) {
+//   $post = get_postdata( $post_id );
+//   $price = get_price_of_post($post["ID"]);
+//   if ( 'post_price' == $column_name  ) {
+//   	echo $price;
+//   }
+//   return $value;
+// }
 
- function add_e2_date_picker(){
-    //jQuery UI date picker file
-    wp_enqueue_script('jquery-ui-datepicker');
-    //jQuery UI theme css file
-    wp_enqueue_style('e2b-admin-ui-css','http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/base/jquery-ui.css',false,"1.9.0",false);
-    }
-    add_action('admin_enqueue_scripts', 'add_e2_date_picker');
+//  function add_e2_date_picker(){
+//     //jQuery UI date picker file
+//     wp_enqueue_script('jquery-ui-datepicker');
+//     //jQuery UI theme css file
+//     wp_enqueue_style('e2b-admin-ui-css','http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/base/jquery-ui.css',false,"1.9.0",false);
+//     }
+//     add_action('admin_enqueue_scripts', 'add_e2_date_picker');

@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: zopus-demo-Plugin
-Plugin URI:  https://developer.wordpress.org/plugins/zopus-demo-plugin/
+Plugin Name: Twitter-Custom-calls
+Plugin URI:  https://developer.wordpress.org/plugins/Twitter-Custom-calls/
 Description: Basic WordPress demo plugin
 Version:     20161013
-Author:      Gautam
-Text Domain: wporg
+Author:      Manoj
+Text Domain: some text
 
 {Plugin Name} is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -22,24 +22,25 @@ along with {Plugin Name}. If not, see {License URI}.
 */
 define( 'ZOPUS_DEMO__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 // require_once( ZOPUS_DEMO__PLUGIN_DIR . '/view/new.php' );
+if( ! function_exists('twitter_api_get') ){
+    require dirname(__FILE__).'/api/twitter-api.php';
+}
 
-
-register_activation_hook( __FILE__, array( 'zopus-demo-plugin', 'plugin_activation' ) );
-register_deactivation_hook( __FILE__, array( 'zopus-demo-plugin', 'plugin_deactivation' ) );
+// register_activation_hook( __FILE__, array( 'student', 'plugin_activation' ) );
+// register_deactivation_hook( __FILE__, array( 'student', 'plugin_deactivation' ) );
 
 
   // add_action( 'plugins_loaded', 'content' );
   // function content_textdomain() {
-  //   load_plugin_textdomain( 'zopus-demo-plugin', false, dirname( plugin_basename( __FILE__ ) ) );
+  //   load_plugin_textdomain( 'Student-CRUD', false, dirname( plugin_basename( __FILE__ ) ) );
   // }
 
   // add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '', $position = null ) {
-
-  add_action('admin_menu', 'content_menu');
-  function content_menu() {
+	
+  add_action('admin_menu', 'content_menu_twitter');
+  function content_menu_twitter() {
     if (function_exists('add_menu_page')) {
-      // echo "<script>alert('')</script>";
-      add_menu_page(__('Zopus-Content', 'contents'), __('Content', 'zopus-content'), 'manage_database', 'zopus-demo-plugin/view/new.php', '', 'dashicons-archive');
+      add_menu_page(__('twitter', 'twitter'), __('twitter', 'twitter'), 'manage_database', 'twitter_my_custom/views/index.php', '', 'dashicons-archive');
     }
       // add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function = '' )
 
