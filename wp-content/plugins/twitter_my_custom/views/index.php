@@ -8,7 +8,7 @@ $params = array('cursor'=>-1,
                 'include_user_entities'=>false);
 
 //$result = twitter_api_get('friends/list', array('screen_name'=>'gautam_moradiya'));
-$result = twitter_api_post('statuses/update',array('status'=> 'posting from api 2'));
+//$result = twitter_api_post('statuses/update',array('status'=> 'posting from api 2'));
 var_dump($result);
 ?>
 
