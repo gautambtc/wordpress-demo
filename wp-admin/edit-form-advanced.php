@@ -489,6 +489,11 @@ if ( isset( $post_new_file ) && current_user_can( $post_type_object->cap->create
 	<span class="hide-if-no-sessionstorage"><?php _e( 'We&#8217;re backing up this post in your browser, just in case.' ); ?></span>
 	</p>
 </div>
+<?php 
+if($post->post_parent == 0 && isset($_REQUEST['post_parent']))
+	$post->post_parent = $_REQUEST['post_parent'];
+echo ">>> ".$post->post_parent;
+ ?>
 <form name="post" action="post.php" method="post" id="post"<?php
 /**
  * Fires inside the post editor form tag.
@@ -509,6 +514,8 @@ $referer = wp_get_referer();
 <input type="hidden" id="post_type" name="post_type" value="<?php echo esc_attr( $post_type ) ?>" />
 <input type="hidden" id="original_post_status" name="original_post_status" value="<?php echo esc_attr( $post->post_status) ?>" />
 <input type="hidden" id="referredby" name="referredby" value="<?php echo $referer ? esc_url( $referer ) : ''; ?>" />
+<input type="text" id="post_parent" name="post_parent" value="<?php echo $post->post_parent; ?>" />
+
 <?php if ( ! empty( $active_post_lock ) ) { ?>
 <input type="hidden" id="active_post_lock" value="<?php echo esc_attr( implode( ':', $active_post_lock ) ); ?>" />
 <?php
@@ -733,6 +740,11 @@ do_action( 'dbx_post_sidebar', $post );
 <br class="clear" />
 </div><!-- /poststuff -->
 </form>
+<div><?php 
+if($post->post_status != 'auto-draft') { ?>
+		<a href="<?php echo "http://localhost/wordpress/wp-admin/post-new.php?post_type=chapter&post_parent=".$post->ID ?>">new Chapter</a>
+	<?php } ?>
+</div>
 </div>
 
 <?php

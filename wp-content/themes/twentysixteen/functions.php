@@ -434,19 +434,48 @@ function custom_admin_css() {
   </style>';
 }
 
-function get_price_of_post($id)
-{
-	global $wpdb;
-	$result = $wpdb->get_results("select * from wp_posts where id=".$id);
-	print_r($result[0]->post_price);
-}
+// function get_price_of_post($id)
+// {
+// 	global $wpdb;
+// 	$result = $wpdb->get_results("select * from wp_posts where id=".$id);
+// 	print_r($result[0]->post_price);
+// }
 
-add_action('manage_posts_custom_column', 'display_extra_column', 10, 3);
-function display_extra_column($value, $column_name, $post_id=0) {
-  $post = get_postdata( $post_id );
-  $price = get_price_of_post($post["ID"]);
-  if ( 'post_price' == $column_name  ) {
-  	echo $price;
-  }
-  return $value;
-}
+// add_action('manage_posts_custom_column', 'display_extra_column', 10, 3);
+// function display_extra_column($value, $column_name, $post_id=0) {
+//   $post = get_postdata( $post_id );
+//   $price = get_price_of_post($post["ID"]);
+//   if ( 'post_price' == $column_name  ) {
+//   	echo $price;
+//   }
+//   return $value;
+// }
+
+add_action( 'init', 'create_book_type' );
+	function create_book_type() {
+	    register_post_type( 'book',
+	        array(
+	            'labels' => array(
+	                'name' => __( 'Books' ),
+	                'singular_name' => __( 'book' )
+	            ),
+	        'public' => true,
+	        'has_archive' => true,
+	        )
+	    );
+	}
+
+	add_action( 'init', 'create_chapter_type' );
+	function create_chapter_type() {
+	    register_post_type( 'chapter',
+	        array(
+	            'labels' => array(
+	                'name' => __( 'Chapters' ),
+	                'singular_name' => __( 'chapter' )
+	            ),
+	        'public' => true,
+	        'has_archive' => true,
+	        'show_in_menu' => false
+	        )
+	    );
+	}
