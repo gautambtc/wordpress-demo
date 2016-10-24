@@ -116,7 +116,7 @@ Please click the following link to confirm the invite:
 	}
 
 	if ( ! is_multisite() ) {
-		$user_id =  edit_user();
+		$user_id = edit_user();
 
 		if ( is_wp_error( $user_id ) ) {
 			$add_user_errors = $user_id;
@@ -391,15 +391,6 @@ $new_user_uri = $creating && isset( $_POST['url'] ) ? wp_unslash( $_POST['url'] 
 $new_user_role = $creating && isset( $_POST['role'] ) ? wp_unslash( $_POST['role'] ) : '';
 $new_user_send_notification = $creating && ! isset( $_POST['send_user_notification'] ) ? false : true;
 $new_user_ignore_pass = $creating && isset( $_POST['noconfirmation'] ) ? wp_unslash( $_POST['noconfirmation'] ) : '';
-echo $new_user_login;
-echo "Creating new user";
-echo $new_user_firstname;
-echo $new_user_lastname;
-echo $new_user_email;
-echo $new_user_uri;
-echo $new_user_role;
-echo $new_user_send_notification;
-echo $new_user_ignore_pass;
 
 ?>
 <table class="form-table">

@@ -46,14 +46,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'SJ%RBGvtr`@Z-_m{g*Tp}cs3NFyy6qiv[D/1}gz*JK&Ej0$.i%}E.C17#j_UY8)+');
-define('SECURE_AUTH_KEY',  'WoQJg2oMph,{z PR+UkD0CV4f3BPM8HmGs0ajqR4*?qmfn0 )!).1efG]$^M!59?');
-define('LOGGED_IN_KEY',    '_lYq/+M*]bxMg&fg2KZV/xkgjW-S4ES8F&gXoTFk=>2?lra`CtZ5rusXY)Thvlgc');
-define('NONCE_KEY',        ']!B9%TVqByq o{5Jz i/dMY6/ wgHwcJ7ZZM>xC*e*`A-(jmR#RpwQQZ3Fi6FW;<');
-define('AUTH_SALT',        ',y=`d[#xvs=_b*XZ B5=Hg0}|NS)ghS{]){)(N|oRr!]eTYWJ$;c#vZ ^EWA,:/E');
-define('SECURE_AUTH_SALT', '-reNL>9i)hnB7g}n/|NTKc6]F42mSHskq8A]oEKb^5W`h#22~xKyI^1jDOAg!C)E');
-define('LOGGED_IN_SALT',   'H7-_K]D.2Yy>x$.PCE(.?;B)fp2{P]%W8.xF*.=?8j7Inmt|@O.ih[`$.#,jx]-7');
-define('NONCE_SALT',       'sPY5)M0t[V?;x9M.jEA-7c2*Wv=S@5RjrB&r7OVAw,_Uory|SS3GEpxzfA|s.sHQ');
+define('AUTH_KEY',         'ksS$J:C6|?0TC&U4e:vsvu$Kpa)KS$DI>:Ft9/SS1uGz6X=#{?vXA_cj@y=IB$40');
+define('SECURE_AUTH_KEY',  '<(4Nx7$/v7s]C||Xv 9$@P`}?[#q/,P_|y9YxXTYAvz@8x$MfI2C_5T,XAl[.62/');
+define('LOGGED_IN_KEY',    '2H+4/kP8r3$a^JH*^<k.:cmsx2r01EO&:}gd~etAF}5}|@/sdZ~IUIT0_%hITsn3');
+define('NONCE_KEY',        '7O6Gd2S1/@8|!LJP093pCvm#`[I&,TXsh{f#q!2,F8OJi;olO-3%!EzyKbd8;tss');
+define('AUTH_SALT',        '+Py9BB-$y_V]-XA-qY%S3-}U$`$F+U:h}zUcICY7A0.&;`9>?pT{r$%J&NU4E+AZ');
+define('SECURE_AUTH_SALT', 'Tee6_dFM+4kr5u|?))#~Ti#xco0=jsr>pB7S3:.B(TD2kUcb3^;pH5(i=me[$dIu');
+define('LOGGED_IN_SALT',   '?;?dmN*KV`?s[,I0C.ADM0#H{yM{&S!bhAnNI&AnmE|+~<:{*?[O+YO;_gfc?(Kw');
+define('NONCE_SALT',       'i{Y2!0}yfa+SG9@]WX})w|iU|xI0qD$iLn$|eBE<T6Y:n&$*j3ulh{9P,cx./xe9');
 
 /**#@-*/
 
@@ -77,13 +77,13 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-  define('ABSPATH', dirname(__FILE__) . '/');
+	define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
